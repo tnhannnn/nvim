@@ -1,2 +1,2 @@
 # nvim
-nvim dotfiles
+git clone https://github.com/tnhannnn/nvim ~/. config/nvim 
