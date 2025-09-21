@@ -1,0 +1,10 @@
+# Plugin manager data
+lazy-lock.json
+packer_compiled.lua
+
+# Swap / backup / undo
+*.swp
+*.bak
+*.tmp
+*.undo
+
