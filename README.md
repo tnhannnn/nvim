@@ -1,2 +1,2 @@
 # nvim
-git clone https://github.com/tnhannnn/nvim ~/. config/nvim 
+git clone https://github.com/tnhannnn/nvim.git ~/. config/nvim 
