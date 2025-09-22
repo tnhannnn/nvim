@@ -1,10 +1,17 @@
-return {
+return{ {
+    'windwp/nvim-autopairs',
+    event = "InsertEnter",
+    config = true
+    -- use opts = {} for passing setup options
+    -- this is equivalent to setup({}) function
+},
+  {
   'saghen/blink.cmp',
    dependencies = { 'rafamadriz/friendly-snippets' },
 
     version = '1.*',
   opts = {
-       keymap = {preset = 'enter'},
+       keymap = {preset = 'super-tab'},
    
 
 
@@ -21,4 +28,4 @@ return {
        fuzzy = { implementation = "prefer_rust_with_warning" }
   },
   opts_extend = { "sources.default" },
-}
+},}
