@@ -6,6 +6,8 @@ map("n", "<leader>f", ":find ")         -- find file
 map("n", "<leader>n", ":nohlsearch<CR>")-- clear highlight
 map("n", "<leader>h", ":split<CR>")
 map("n", "<leader>v", ":vsplit<CR>")
+map("v", "<C-c>", '"+y')
+map("n", "<C-c>", '"+yy')
 vim.g.mapleader = ' ' 
 -- Compile & run C++ file
 vim.keymap.set("n", "<leader>b", function()

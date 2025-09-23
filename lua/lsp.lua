@@ -2,8 +2,8 @@ local M = {}
 
 function M.setup()
   -- Kích hoạt LSP clangd
-  vim.lsp.enable({'clangd'})
-
+  vim.lsp.enable({'clangd','css','html','ts_ls'})
+  
   -- Cấu hình hiển thị diagnostic (lỗi, cảnh báo)
   vim.diagnostic.config({
     virtual_text = true,  -- Hiện lỗi dạng text ảo ngay dòng code
