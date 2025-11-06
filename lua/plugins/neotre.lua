@@ -8,8 +8,8 @@ return {
 	},
 	lazy = false,
 	config = function()
-		vim.keymap.set("n", "<C-n>", ":Neotree filesystem toggle right <CR>", {})
-		vim.keymap.set("n", "<C-e>", ":Neotree<CR>", {})
+		vim.keymap.set("n", "<C-n>", ":Neotree filesystem toggle right <CR>", { desc = "Toggle Neotree right" })
+		vim.keymap.set("n", "<C-e>", ":Neotree<CR>", { desc = "Open Neotree" })
 		require("neo-tree").setup({
 			window = { width = 25, position = "right" },
 		})

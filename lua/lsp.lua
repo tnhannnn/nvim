@@ -1,25 +1,68 @@
-local M = {}
+local keymap = vim.keymap -- for conciseness
+vim.api.nvim_create_autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	callback = function(ev)
+		-- Buffer local mappings.
+		-- See `:help vim.lsp.*` for documentation on any of the below functions
+		local opts = { buffer = ev.buf, silent = true }
 
-function M.setup()
-	-- Kích hoạt LSP clangd
-	vim.lsp.enable({ "clangd", "css", "html", "ts_ls", "lua_ls" })
+		-- set keybinds
+		opts.desc = "Show LSP references"
+		keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 
-	-- Cấu hình hiển thị diagnostic (lỗi, cảnh báo)
-	vim.diagnostic.config({
-		virtual_text = true, -- Hiện lỗi dạng text ảo ngay dòng code
-		signs = true, -- Hiện dấu lỗi bên lề (gutter)
-		underline = true, -- Gạch chân đoạn code lỗi
-		update_in_insert = false, -- Không hiện lỗi khi đang insert
-		severity_sort = true, -- Sắp xếp lỗi theo mức độ nghiêm trọng
-	})
+		opts.desc = "Go to declaration"
+		keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
 
-	-- Thiết lập keymap mở popup lỗi khi con trỏ đứng trên dòng lỗi
-	vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Open diagnostic float" })
-	-- Bỏ map Ctrl+x Ctrl+o mặc định
-	vim.api.nvim_set_keymap("i", "<C-x><C-o>", "", { noremap = true, silent = true })
+		opts.desc = "Show LSP definition"
+		keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- show lsp definition
 
-	-- Gán Ctrl+x để gọi completion (Ctrl+x Ctrl+o)
-	vim.api.nvim_set_keymap("i", "<C-x>", "<C-x><C-o>", { noremap = true, silent = true })
-end
+		opts.desc = "Show LSP implementations"
+		keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
 
-return M
+		opts.desc = "Show LSP type definitions"
+		keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+
+		opts.desc = "See available code actions"
+		keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+
+		opts.desc = "Smart rename"
+		keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+
+		opts.desc = "Show buffer diagnostics"
+		keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+
+		opts.desc = "Show line diagnostics"
+		keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+
+		opts.desc = "Go to previous diagnostic"
+		keymap.set("n", "[d", function()
+			vim.diagnostic.jump({ count = -1, float = true })
+		end, opts) -- jump to previous diagnostic in buffer
+		--
+		opts.desc = "Go to next diagnostic"
+		keymap.set("n", "]d", function()
+			vim.diagnostic.jump({ count = 1, float = true })
+		end, opts) -- jump to next diagnostic in buffer
+
+		opts.desc = "Show documentation for what is under cursor"
+		keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+
+		opts.desc = "Restart LSP"
+		keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+	end,
+})
+
+-- vim.lsp.inlay_hint.enable(true)
+
+local severity = vim.diagnostic.severity
+
+vim.diagnostic.config({
+	signs = {
+		text = {
+			[severity.ERROR] = " ",
+			[severity.WARN] = " ",
+			[severity.HINT] = "󰠠 ",
+			[severity.INFO] = " ",
+		},
+	},
+})

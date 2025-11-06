@@ -7,12 +7,11 @@ return {
 				theme = "catppuccin",
 			},
 			sections = {
-				lualine_a = { "mode" },
-				lualine_b = { { "branch", icon = "" } }, -- Tắt chỉ icon branch
-				lualine_c = { "filename" },
-				lualine_x = { "filetype" },
-				lualine_y = { "progress" },
-				lualine_z = { "location" },
+				lualine_x = {
+					{ "encoding" },
+					{ "fileformat", symbols = { unix = "" } },
+					{ "filetype" },
+				},
 			},
 		})
 	end,
