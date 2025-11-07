@@ -9,6 +9,7 @@ return {
 				"html",
 				"cssls",
 				"lua_ls",
+				"pyright",
 			},
 		},
 		dependencies = {
@@ -34,6 +35,7 @@ return {
 				"clang-format", --cpp formatter
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
+				"black", --python formatter
 			},
 		},
 		dependencies = {
