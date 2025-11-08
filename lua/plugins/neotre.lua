@@ -12,6 +12,18 @@ return {
 		vim.keymap.set("n", "<C-e>", ":Neotree<CR>", { desc = "Open Neotree" })
 		require("neo-tree").setup({
 			window = { width = 25, position = "right" },
+			filesystem = {
+				follow_current_file = {
+					enabled = true,
+					leave_dirs_open = false,
+				},
+				use_libuv_file_watcher = true, -- Tự động cập nhật khi file thay đổi
+				filtered_items = {
+					visible = false,
+					hide_dotfiles = false,
+					hide_gitignored = false,
+				},
+			},
 		})
 	end,
 }
