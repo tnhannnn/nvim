@@ -5,13 +5,13 @@ return {
 		lazy = false,
 		---@type snacks.Config
 		opts = {
-			-- Chỉ enable những gì bạn cần
-			input = { enabled = true }, -- cần cho picker nhập text
+			input = { enabled = true }, -- required for picker
 			picker = { enabled = true }, -- file picker / grep
 			dashboard = { enable = true },
+			indent = { enabled = true },
 		},
 		keys = {
-			-- Mở Lazygit
+			-- Open Lazygit #require lazygit installed
 			{
 				"<leader>lg",
 				function()
@@ -22,14 +22,14 @@ return {
 
 			-- File picker
 			{
-				"<leader>pf",
+				"<leader>ff",
 				function()
 					require("snacks").picker.files()
 				end,
 				desc = "Find Files",
 			},
 			{
-				"<leader>ps",
+				"<leader>fg",
 				function()
 					require("snacks").picker.grep()
 				end,
