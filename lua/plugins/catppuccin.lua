@@ -4,6 +4,15 @@ return {
 		name = "catppuccin",
 		priority = 1000,
 		config = function()
+			require("catppuccin").setup({
+				flavour = "mocha",
+				auto_integrations = true,
+				color_overrides = {
+					mocha = {
+						blue = "#b4befe",
+					},
+				},
+			})
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
