@@ -16,7 +16,7 @@ return {
 		)
 		vim.keymap.set("n", "<C-e>", ":Neotree<CR>", { desc = "Open or focus Neotree", silent = true })
 		require("neo-tree").setup({
-			window = { width = 25, position = "right" },
+			window = { width = 30, position = "right", statusline = false },
 			filesystem = {
 				follow_current_file = {
 					enabled = true,

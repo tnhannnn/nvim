@@ -4,12 +4,18 @@ return {
 	config = function()
 		require("lualine").setup({
 			options = {
-				theme = "catppuccin",
+				theme = "rose-pine",
+				globalstatus = true,
+				--[[disabled_filetypes = {
+					winbar = { "neo-tree" },
+					statusbar = { "neo-tree" },
+				},
+]]
 			},
 			sections = {
 				lualine_x = {
 					{ "encoding" },
-					{ "fileformat" },
+					{ "fileformat", symbols = { unix = "" } },
 					{ "filetype" },
 				},
 			},

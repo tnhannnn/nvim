@@ -7,5 +7,7 @@ vim.o.smartindent = true
 vim.o.cursorline = true
 vim.o.mouse = "a"
 vim.o.termguicolors = true
-
+vim.opt.fillchars:append({ eob = " " }) -- Unicode non-breaking space (U+202F)
 vim.opt.shortmess:append("I") -- tắt intro message
+--Set your colorscheme here
+vim.cmd("colorscheme rose-pine-moon")

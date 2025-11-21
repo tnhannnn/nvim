@@ -13,8 +13,13 @@ return {
 					},
 				},
 			})
-			vim.cmd.colorscheme("catppuccin")
 		end,
+	},
+	-- lua/plugins/rose-pine.lua
+	{
+		"rose-pine/neovim",
+		name = "rose-pine",
+		config = function() end,
 	},
 	{
 		"HiPhish/rainbow-delimiters.nvim",
