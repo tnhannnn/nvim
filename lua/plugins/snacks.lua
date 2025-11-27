@@ -35,6 +35,20 @@ return {
 				end,
 				desc = "Grep word",
 			},
+			{
+				"<leader>sd",
+				function()
+					Snacks.picker.diagnostics()
+				end,
+				desc = "Diagnostics",
+			},
+			{
+				"<leader>sD",
+				function()
+					Snacks.picker.diagnostics_buffer()
+				end,
+				desc = "Buffer Diagnostics",
+			},
 		},
 	},
 }

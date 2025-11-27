@@ -14,7 +14,7 @@ return {
 			":Neotree filesystem toggle right <CR>",
 			{ desc = "Toggle Neotree right", silent = true }
 		)
-		vim.keymap.set("n", "<C-e>", ":Neotree<CR>", { desc = "Open or focus Neotree", silent = true })
+		vim.keymap.set("n", "<leader>e", ":Neotree<CR>", { desc = "Open or focus Neotree", silent = true })
 		require("neo-tree").setup({
 			window = { width = 30, position = "right", statusline = false },
 			filesystem = {
