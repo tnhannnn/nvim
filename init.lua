@@ -11,14 +11,14 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 require("keymaps")
-require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp-config" } }, {
-  checker = {
-    enabled = true,
-    notify = false,
-  },
-  change_detection = {
-    notify = false,
-  },
+require("lazy").setup({ { import = "plugins" } }, {
+	checker = {
+		enabled = true,
+		notify = false,
+	},
+	change_detection = {
+		notify = false,
+	},
 })
 require("options")
 require("lsp")
