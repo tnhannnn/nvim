@@ -18,6 +18,7 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.o.cmdheight = 0
 vim.o.showcmd = true
+vim.o.winborder = "single"
 --keymaps
 local map = vim.keymap.set
 map({ "n", "t" }, "<C-h>", [[<C-\><C-n><C-w>h]], { noremap = true, silent = true })
@@ -26,3 +27,5 @@ map({ "n", "t" }, "<C-k>", [[<C-\><C-n><C-w>k]], { noremap = true, silent = true
 map({ "n", "t" }, "<C-l>", [[<C-\><C-n><C-w>l]], { noremap = true, silent = true })
 map("t", "<Esc>", [[<C-\><C-n>]], { noremap = true, silent = true })
 map("n", "<Esc>", "<cmd>noh<CR><Esc>", { silent = true })
+map("n", "<leader>tn", "<cmd>tabnew<CR>", { silent = true })
+map("n", "<leader>tx", "<cmd>tabclose<CR>", { silent = true })

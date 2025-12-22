@@ -5,25 +5,13 @@ vim.pack.add({
 	{ src = "https://github.com/mason-org/mason.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main" },
 	{ src = "https://github.com/catppuccin/nvim", branch = "main" },
-	{ src = "https://github.com/rafamadriz/friendly-snippets" },
-	{ src = "https://github.com/saghen/blink.cmp" },
 })
-vim.cmd.colorscheme("catppuccin-frappe")
+vim.cmd.colorscheme("catppuccin-macchiato")
 require("plugins.neotree")
 require("plugins.format")
 require("plugins.telescope")
+require("plugins.completion")
 require("mason").setup({})
-require("blink.cmp").setup({
-	keymap = { preset = "super-tab" },
-	appearance = {
-		nerd_font_variant = "mono",
-	},
-	completion = { documentation = { auto_show = false } },
-	sources = {
-		default = { "lsp", "path", "snippets", "buffer" },
-	},
-	fuzzy = { implementation = "lua" },
-})
 vim.lsp.config("lua_ls", {
 	settings = {
 		Lua = {
@@ -35,7 +23,9 @@ vim.lsp.config("lua_ls", {
 	},
 })
 vim.lsp.enable({ "lua_ls", "clangd" })
-require("nvim-treesitter").install({ "lua", "vim", "vimdoc", "c", "cpp" }):wait(300000)
+require("nvim-treesitter")
+	.install({ "lua", "vim", "vimdoc", "c", "cpp", "html", "typescript", "javascript", "python" })
+	:wait(300000)
 vim.api.nvim_create_autocmd({ "FileType" }, {
 	callback = function()
 		pcall(vim.treesitter.start)
