@@ -8,7 +8,7 @@
     bob install nightly
     ```
 ```bash
-git clone https://github.com/tnhannnn/nvim ~/.dotfiles/nvim
+git clone https://github.com/tnhannnn/nvim ~/.config/nvim
 ```
 - You can clone my github to another directory like nvim-nightly and then use alias like me
 ```zsh
