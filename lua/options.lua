@@ -11,7 +11,6 @@ vim.g.mapleader = " "
 vim.opt.clipboard = "unnamedplus"
 vim.o.cursorline = true
 vim.o.termguicolors = true
-vim.cmd("syntax off")
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.opt.foldlevel = 99
@@ -19,6 +18,7 @@ vim.opt.foldlevelstart = 99
 vim.o.cmdheight = 0
 vim.o.showcmd = true
 vim.o.winborder = "single"
+
 --keymaps
 local map = vim.keymap.set
 map({ "n", "t" }, "<C-h>", [[<C-\><C-n><C-w>h]], { noremap = true, silent = true })
